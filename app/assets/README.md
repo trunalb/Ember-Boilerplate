@@ -1,0 +1,1 @@
+Public assets go here. They'll be served in public/assets/.
