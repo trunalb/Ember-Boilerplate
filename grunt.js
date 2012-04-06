@@ -1,9 +1,4 @@
-var hbs = require("handlebars");
-var path = require("path");
-
 module.exports = function(grunt) {
-
-  var file = grunt.file;
 
   grunt.initConfig({
     concat: {
@@ -37,26 +32,8 @@ module.exports = function(grunt) {
       base: './public'
     }
   });
-
-  grunt.registerMultiTask("ember_templates", "Build Ember templates.", function() {
-    var ember_files = file.expandFiles(this.data.ember);
-    var build_into = this.data.to;
-    var dest = this.data.dest;
-
-    var ember_templates = {};
-    for (i in ember_files) {
-      ember_templates[path.basename(ember_files[i], ".handlebars")] = file.read(ember_files[i]);
-    }
-
-    //maybe unneeded?
-    hbs.registerHelper('emberTmpl', function(tmpl) {
-      return new hbs.SafeString(tmpl);
-    });
-
-    var template = hbs.compile(file.read(build_into));
-    file.write(this.data.dest, template(ember_templates));
-  });
   
   grunt.registerTask('default', 'concat ember_templates server watch');
+  grunt.registerTask('build', 'concat ember_templates')
   
 };
