@@ -12,10 +12,23 @@ module.exports = function(grunt) {
       }
     },
 
+    // Copies over static assets without touching them.
     assets: {
-      folder: ['app/assets/'],
-      dest: ['public/assets/']
+      folder: 'app/assets/',
+      src: ['app/assets/**'],
+      ignore: ['app/assets/**/*.less', 'app/assets/**/README.md'],
+      dest: 'public/assets/'
     },
+
+    /*
+    less: {
+       index: {
+        files: {
+          "public/assets/stylesheets/index.css": "app/assets/stylesheets/index.less"
+        }
+      }
+    },
+    */
 
     // silly at the moment, but keeps the server alive. will update with
     // more soon, like rebuild templates and LESS on change and such.
@@ -38,7 +51,7 @@ module.exports = function(grunt) {
     }
   });
   
-  grunt.registerTask('default', 'concat ember_templates server watch');
-  grunt.registerTask('build', 'concat ember_templates')
+  grunt.registerTask('default', 'concat ember_templates assets server watch');
+  grunt.registerTask('build', 'concat ember_templates assets')
   
 };
