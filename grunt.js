@@ -7,7 +7,7 @@ module.exports = function(grunt) {
         dest: 'public/assets/javascripts/vendor.js'
       },
       ember: {
-        src: ['app/ember/app.js', 'app/ember/**/*.js'],
+        src: ['app/ember/app.js', 'app/ember/lib/*.js','app/ember/**/*.js'],
         dest: 'public/assets/javascripts/app.js'
       }
     },
