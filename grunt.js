@@ -3,11 +3,11 @@ module.exports = function(grunt) {
   grunt.initConfig({
     concat: {
       vendor: {
-        src: ['vendor/jquery.js', 'vendor/ember-0.9.6.min.js', "vendor/ember-data.js"],
+        src: ['vendor/jquery.min.js', 'vendor/ember.min.js'],
         dest: 'public/assets/javascripts/vendor.js'
       },
       ember: {
-        src: ['app/ember/**/*.js'],
+        src: ['app/ember/app.js', 'app/ember/**/*.js'],
         dest: 'public/assets/javascripts/app.js'
       }
     },
