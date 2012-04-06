@@ -1,0 +1,1 @@
+window.{%= ember_namespace %} = Ember.Application.create();
