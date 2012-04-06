@@ -12,6 +12,11 @@ module.exports = function(grunt) {
       }
     },
 
+    assets: {
+      folder: ['app/assets/'],
+      dest: ['public/assets/']
+    },
+
     // silly at the moment, but keeps the server alive. will update with
     // more soon, like rebuild templates and LESS on change and such.
     watch: {
