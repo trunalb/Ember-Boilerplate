@@ -33,8 +33,18 @@ module.exports = function(grunt) {
     // silly at the moment, but keeps the server alive. will update with
     // more soon, like rebuild templates and LESS on change and such.
     watch: {
-      files: "app/",
-      tasks: "default"
+      concat: {
+        files: "app/ember/**/*.js",
+        tasks: "concat"
+      },
+      templates: {
+        files: "app/ember/templates/*.handlebars",
+        tasks: "ember_templates"
+      },
+      assets: {
+        files: "app/assets/**",
+        tasks: "assets"
+      }
     },
 
     ember_templates: {
