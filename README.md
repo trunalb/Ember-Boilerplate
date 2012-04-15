@@ -1,5 +1,7 @@
 # Ember-Boilerplate
 
+_(Ember Boilerplate & Charcoal are very much a work-in-progress at the moment! Feel free to contribute suggestions or code.)_
+
 ## Getting Started
 
 Rather than simply cloning the repo and using that as a template, the Ember Boilerplate template is created by an init task in the build tool it uses, [Charcoal](https://github.com/thomasboyt/Charcoal). This makes it much easier to get up-and-running with a customized app. Charcoal also includes tasks to build various assets for Ember apps.
