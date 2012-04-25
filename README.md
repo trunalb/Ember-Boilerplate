@@ -10,7 +10,7 @@ To create a new app:
 
 ```
 $ git clone git://github.com/thomasboyt/Charcoal.git
-$ npm install -g Charcoal/
+$ sudo npm install -g Charcoal/
 $ charcoal init:ember
 ```
 

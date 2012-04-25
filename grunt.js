@@ -25,32 +25,38 @@ module.exports = function(grunt) {
        index: {
         files: {
           "public/assets/stylesheets/index.css": "app/assets/stylesheets/index.less"
+        },
+        options: {
+          paths: [__dirname + "/app/assets/stylesheets/"] //required for @import to work
         }
       }
     },
     */
 
-    // silly at the moment, but keeps the server alive. will update with
-    // more soon, like rebuild templates and LESS on change and such.
     watch: {
       concat: {
         files: "app/ember/**/*.js",
         tasks: "concat"
       },
       templates: {
-        files: "app/ember/templates/*.handlebars",
+        files: "app/**/*.handlebars",
         tasks: "ember_templates"
       },
       assets: {
         files: "app/assets/**",
         tasks: "assets"
-      }
+      },
+      
+      // less: {
+      //   files: "app/assets/stylesheets/**/*.less",
+      //   tasks: "less"
+      // }
     },
 
     ember_templates: {
       app: {
         ember: ["./app/ember/templates/*.handlebars"],
-        to: "./app/templates/index.handlebars",
+        to: "./app/pages/index.handlebars",
         dest: 'public/index.html'
       }
     },
