@@ -20,7 +20,7 @@ And you'll be ready to go.
 
 _(todo. for now, you can see the `tasks/` directory in Charcoal's repo to see the tasks that Charcoal adds on top of grunt, and of course you can look at the Gruntfile to see how it's configured - it's mostly self documenting)_
 
-The `ember_template` task: This task concatenates your Ember templates (in `app/ember/templates`) into your page templates (in `app/templates`) wherever you've used the `{{emberTmpl}}` Handlebars tag. This makes it easier to separate and reuse templates.
+The `ember_template` task: This task concatenates your Ember templates (in `app/ember/templates`) into your page templates (in `app/pages`) wherever you've used the `{{ember_template}}` or `{{ember_named_template}}` Handlebars tags. This makes it easier to separate and reuse templates.
 
 ## File structure
 
@@ -38,7 +38,7 @@ This is still in flux, any suggestions are appreciated.
         * templates/ - *Ember templates* go here.
         * views/
         * app.js - Gets concatenated first to the compiled JS, except for `lib/`. Should contain your `Ember.Application.create()` namespace 
-    * templates/ - *Page templates* go here.
+    * pages/ - *Page templates* go here.
 * vendor/
     * jquery.min.js
     * ember.min.js
