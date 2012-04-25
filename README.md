@@ -11,7 +11,7 @@ To create a new app:
 ```
 $ git clone git://github.com/thomasboyt/Charcoal.git
 $ sudo npm install -g Charcoal/
-$ charcoal init:ember
+$ charcoal init
 ```
 
 And you'll be ready to go.
