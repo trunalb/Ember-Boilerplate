@@ -1,4 +1,11 @@
-# git mv me to .gitignore
-
 public/
-app/**/README.md
+
+# feel free to delete these files if you don't need the docs
+app/assets/images/README.md
+app/assets/javascripts/README.md
+app/assets/stylesheets/README.md
+app/ember/controllers/README.md
+app/ember/lib/README.md
+app/ember/models/README.md
+app/ember/templates/README.md
+app/ember/views/README.md
