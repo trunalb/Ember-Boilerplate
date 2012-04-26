@@ -12,6 +12,13 @@ module.exports = function(grunt) {
       }
     },
 
+    min: {
+      ember: {
+        src: ['public/assets/javascripts/app.js'],
+        dest: 'public/assets/javascripts/app.min.js'
+      }
+    },
+
     // Copies over static assets without touching them.
     assets: {
       folder: 'app/assets/',
@@ -67,7 +74,11 @@ module.exports = function(grunt) {
     }
   });
   
+  // less
+  // grunt.registerTask('default', 'concat ember_templates assets less server watch');
+  // grunt.registerTask('dist', 'concat min ember_templates assets less server watch');
+
   grunt.registerTask('default', 'concat ember_templates assets server watch');
-  grunt.registerTask('build', 'concat ember_templates assets')
-  
+  grunt.registerTask('dist', 'concat min ember_templates assets server watch');
+
 };
