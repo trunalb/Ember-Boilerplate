@@ -1,0 +1,4 @@
+# git mv me to .gitignore
+
+public/
+app/**/README.md
