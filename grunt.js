@@ -26,8 +26,8 @@ module.exports = function(grunt) {
       },
       ember: {
         src: [
-          'app/ember/app.js', 
           'app/ember/lib/*.js',
+          'app/ember/app.js', 
           'app/ember/**/*.js'
         ],
         dest: 'public/assets/javascripts/app.js'
