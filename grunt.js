@@ -8,16 +8,28 @@ module.exports = function(grunt) {
 
     */
 
-    // Compiles your JS into two files. Order matters. So if you have files that
-    // depend on one another, put them in vendor/ or app/ember/lib/*.js if they're libs
-    // or specify the order in which they are concatinated in concat.ember.src
+    // Compiles your JS into two files. Order matters. So if you have a file that 
+    // depends on something loaded previously, make sure it's loaded first, either by
+    // putting it in app/ember/lib or by listing its specific load order.
+    //
+    // i.e. if "app/ember/controllers/people-controller.js" depends on something in
+    // "app/ember/models/person.js", your src array should say something like:
+    // src: ["app/ember/app.js", "app/ember/lib/*.js", "app/ember/models/person.js",
+    //       "app/ember/controllers/people-controller.js", "app/ember/**/*.js"]
+    //
+    // In general, needing to specify build order isn't common with the way Ember 
+    // is structured, but it does happen.
     concat: {
       vendor: {
         src: ['vendor/jquery.min.js', 'vendor/ember.min.js'],
         dest: 'public/assets/javascripts/vendor.js'
       },
       ember: {
-        src: ['app/ember/app.js', 'app/ember/lib/*.js','app/ember/**/*.js'],
+        src: [
+          'app/ember/app.js', 
+          'app/ember/lib/*.js',
+          'app/ember/**/*.js'
+        ],
         dest: 'public/assets/javascripts/app.js'
       }
     },
@@ -112,7 +124,7 @@ module.exports = function(grunt) {
   Alias tasks
 
   */
-  
+
   // build - Builds out a static site.
   // dist - Builds & minifies a static site.
   // charcoal_server (default) - Builds out a static site (without minifying) and serves 
