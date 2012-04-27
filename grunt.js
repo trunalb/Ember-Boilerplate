@@ -22,7 +22,6 @@ module.exports = function(grunt) {
     // Copies over static assets without touching them.
     assets: {
       folder: 'app/assets/',
-      src: ['app/assets/**'],
       ignore: ['app/assets/**/*.less', 'app/assets/**/README.md'],
       dest: 'public/assets/'
     },
