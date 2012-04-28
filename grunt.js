@@ -36,10 +36,18 @@ module.exports = function(grunt) {
 
     // Copies over static assets without touching them. Ignore any files you
     // don't want to serve.
-    assets: {
-      folder: 'app/assets/',
-      ignore: ['app/assets/**/*.less', 'app/assets/**/README.md'],
-      dest: 'public/assets/'
+    copy: {
+      pages: {
+        src: ['app/pages/**/*.html'],
+        remove_prefix: 'app/pages',
+        dest: 'public/'
+      },
+      assets: {
+        src: "app/assets/**/*",
+        remove_prefix: 'app/assets/',
+        ignore: ['app/assets/**/*.less', 'app/assets/**/README.md'],
+        dest: 'public/assets/'
+      }
     },
 
     // Uncomment for Less build support.
@@ -60,9 +68,8 @@ module.exports = function(grunt) {
     // {{ember_template}} or {{ember_named_template}} tag.
     ember_templates: {
       app: {
-        ember: ["./app/ember/templates/*.handlebars"],
-        to: "./app/pages/index.handlebars",
-        dest: 'public/index.html'
+        src: ["./app/ember/templates/*.handlebars"],
+        dest: 'public/assets/javascripts/templates.js'
       }
     },
 
@@ -106,8 +113,8 @@ module.exports = function(grunt) {
         tasks: "ember_templates"
       },
       assets: {
-        files: "app/assets/**",
-        tasks: "assets"
+        files: ["app/assets/**", "app/pages/**"],
+        tasks: "copy:pages"
       },
     },
 
@@ -131,14 +138,14 @@ module.exports = function(grunt) {
   //    it, as well as watching for updates.
 
   if (grunt.config("less")) {
-    grunt.registerTask('build', 'concat ember_templates assets less');
+    grunt.registerTask('build', 'concat ember_templates copy less');
     grunt.config.escape("watch.less", {
       files: "app/assets/stylesheets/**/*.less",
       tasks: "less"
     });
   }
   else {
-    grunt.registerTask('build', 'concat ember_templates assets');
+    grunt.registerTask('build', 'concat ember_templates copy');
   }
 
   grunt.registerTask('dist', 'build min mincss');
